@@ -1,7 +1,12 @@
 import React from "react";
-import { StatusBar } from "react-native";
 import Routes from "./src/routes";
+import theme from "./src/theme";
+import { ThemeProvider } from "styled-components";
 
-export default function App() {
-  return <Routes />;
-}
+export default App = () => {
+  return (
+    <ThemeProvider theme={theme.COLORS}>
+      <Routes />
+    </ThemeProvider>
+  );
+};

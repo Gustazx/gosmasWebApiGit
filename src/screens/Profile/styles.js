@@ -1,24 +1,23 @@
-import { StyleSheet } from "react-native";
-import styled from "styled-components";
+import { Children } from "react";
+import styled from "styled-components/native";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#363636",
-  },
-  input: {
-    borderColor: "gray",
-    width: "100%",
-    borderWidth: 1,
-    borderRadius: 10,
-    padding: 10,
-    backgroundColor: "#DCDCDC",
-    marginTop: 50,
-  },
-  text: {
-    color: "#DCDCDC",
-  },
-});
+export const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  background-color: ${(props) => props.theme.BACKGROUND};
+`;
 
-export default styles;
+export const Row = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+`;
+
+const OpacityButton = styled.TouchableOpacity`
+  color: #dcdcdc;
+`;
+
+export const IconButton = ({ children, onPress }) => (
+  <OpacityButton onPress={onPress}>{children}</OpacityButton>
+);

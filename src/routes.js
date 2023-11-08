@@ -1,8 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Search from "./screens/Search";
 import Profile from "./screens/Profile";
-import Repositories from "./screens/Repositories";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,13 +11,13 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ title: "Perfil", headerShown: false }}
+          name="Search"
+          component={Search}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Repositories"
-          component={Repositories}
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
