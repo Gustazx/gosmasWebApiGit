@@ -1,33 +1,23 @@
 import styled from "styled-components/native";
 import React from "react";
-import { StatusBar } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+import { getStatusBarHeight } from "react-native-status-bar-height";
 
-const Input = styled.TextInput`
-  border-color: #808080;
-  width: 100%;
-  border-width: 1px;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #dcdcdc;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Container = styled.View`
-  align-items: center;
-  justify-content: center;
+export const Container = styled(LinearGradient).attrs({
+  colors: ["#363636", "#808080"],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 },
+})`
   flex: 1;
-  background-color: #363636;
+  padding-top: ${40 + getStatusBarHeight(true)}px;
 `;
 
 const CustomTouchableOpacity = styled.TouchableOpacity`
-  height: 40px;
-  border-radius: 30px;
-  width: 100px;
+  border-radius: 15px;
   justify-content: center;
-  align-items: center;
-  background-color: #956b6b;
-  margin-top: 16px;
+  background-color: #737067;
+  margin: 0 10px;
+  padding: 0 15px;
 `;
 
 const ButtonText = styled.Text`
@@ -35,20 +25,17 @@ const ButtonText = styled.Text`
   font-size: 16px;
 `;
 
+export const Form = styled.View`
+  flex-direction: row;
+  margin-top: 10px;
+  padding: 0 10px;
+`;
+
 export const Button = ({ onPress }) => (
   <CustomTouchableOpacity onPress={onPress}>
-    <ButtonText> Busque</ButtonText>
+    <ButtonText> Buscar</ButtonText>
   </CustomTouchableOpacity>
 );
-export const CustomTextInput = ({ placeholder, value, onChangeText }) => {
-  return (
-    <Input
-      placeholder={placeholder}
-      value={value}
-      onChangeText={onChangeText}
-    />
-  );
-};
 
 export const Text = styled.Text`
   color: #dcdcdc;

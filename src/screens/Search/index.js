@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Alert, StatusBar } from "react-native";
-import { Container, Text, CustomTextInput, Button, RotatedBox } from "./styles";
+import { Container, Text, Button, RotatedBox, Form } from "./styles";
 import { searchUser } from "../../services/request/users";
+import { CustomTextInput } from "../../components/CustomTextInput";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -23,13 +24,15 @@ export default function Search() {
   }
   return (
     <Container>
-      <StatusBar backgroundColor="#363636" />
-      <CustomTextInput
-        onChangeText={setNomeUsuario}
-        value={nomeUsurario}
-        placeholder={"Busque um usuario"}
-      />
-      <Button onPress={search} />
+      <Form>
+        <CustomTextInput
+          onChangeText={setNomeUsuario}
+          value={nomeUsurario}
+          placeholder={"Busque um usuario"}
+        />
+        <Button onPress={search} />
+      </Form>
+
       <Text>{user.name}</Text>
       <RotatedBox />
     </Container>
