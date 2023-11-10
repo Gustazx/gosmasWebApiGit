@@ -1,9 +1,8 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Container, Row } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-import { IconButton } from "./styles";
+import IconButton from "../../components/IconButton";
 
 export default function Profile({ route }) {
   const navigation = useNavigation();

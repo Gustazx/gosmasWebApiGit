@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Alert, StatusBar } from "react-native";
-import { Container, Text, Button, RotatedBox, Form } from "./styles";
+import { Alert } from "react-native";
+import { Container, Button, Form } from "./styles";
 import { searchUser } from "../../services/request/users";
 import { CustomTextInput } from "../../components/CustomTextInput";
+import IconButton from "../../components/IconButton";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -25,6 +27,16 @@ export default function Search() {
   return (
     <Container>
       <Form>
+        <IconButton
+          onPress={() => {
+            navigation.dispatch(DrawerActions.openDrawer());
+          }}
+        >
+          <FontAwesome name="bars" style={{ color: "white" }} size={25} />
+        </IconButton>
+      </Form>
+
+      <Form>
         <CustomTextInput
           onChangeText={setNomeUsuario}
           value={nomeUsurario}
@@ -32,9 +44,6 @@ export default function Search() {
         />
         <Button onPress={search} />
       </Form>
-
-      <Text>{user.name}</Text>
-      <RotatedBox />
     </Container>
   );
 }

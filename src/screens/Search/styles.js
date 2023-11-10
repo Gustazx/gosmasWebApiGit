@@ -33,16 +33,10 @@ export const Form = styled.View`
 
 export const Button = ({ onPress }) => (
   <CustomTouchableOpacity onPress={onPress}>
-    <ButtonText> Buscar</ButtonText>
+    <ButtonText>Buscar</ButtonText>
   </CustomTouchableOpacity>
 );
 
 export const Text = styled.Text`
   color: #dcdcdc;
-`;
-
-export const RotatedBox = styled.View`
-  transform: rotate(90deg);
-  text-shadow: 10px 5px;
-  margin: 5px 7px 2px;
 `;
