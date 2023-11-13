@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: "#956b6b",
+  fontFamily: "OpenSans-Regular",
 })`
   border-color: #808080;
   border-width: 1px;

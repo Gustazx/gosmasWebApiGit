@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Routes from "./src/routes";
 import theme from "./src/theme";
 import { ThemeProvider } from "styled-components";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
+import "react-native-gesture-handler";
+import { useFonts } from "@expo-google-fonts/open-sans";
 
 export default App = () => {
+  const [loaded] = useFonts({
+    "OpenSans-Bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "OpenSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
+  });
+
+  if (!loaded) {
+    return <View />;
+  }
+
   return (
-    <ThemeProvider theme={theme.COLORS}>
-      <>
-        <StatusBar
-          backgroundColor="transparent"
-          translucent
-          barStyle="light-content"
-        />
-        <Routes />
-      </>
-    </ThemeProvider>
+    <>
+      <StatusBar
+        backgroundColor="transparent"
+        translucent
+        barStyle="light-content"
+      />
+      <Routes />
+    </>
   );
 };

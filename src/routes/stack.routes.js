@@ -1,14 +1,12 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Search from "./screens/Search";
-import Profile from "./screens/Profile";
-
 const Stack = createNativeStackNavigator();
+import Search from "../screens/Search";
+import Profile from "../screens/Profile";
+import UserRepositories from "../screens/UserRepositories";
 
-export default function Routes() {
+export default function StackRoutes() {
   return (
-    <NavigationContainer>
+    <>
       <Stack.Navigator>
         <Stack.Screen
           name="Search"
@@ -20,7 +18,12 @@ export default function Routes() {
           component={Profile}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="UserRepositories"
+          component={UserRepositories}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
-    </NavigationContainer>
+    </>
   );
 }

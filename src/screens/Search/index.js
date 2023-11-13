@@ -18,6 +18,7 @@ export default function Search() {
     if (result) {
       setUser(result);
       navigation.navigate("Profile", { user: result });
+      console.log(result);
       setNomeUsuario("");
       setUser({});
     } else {
@@ -29,7 +30,7 @@ export default function Search() {
       <Form>
         <IconButton
           onPress={() => {
-            navigation.dispatch(DrawerActions.openDrawer());
+            navigation.getParent("Drawer").openDrawer();
           }}
         >
           <FontAwesome name="bars" style={{ color: "white" }} size={25} />

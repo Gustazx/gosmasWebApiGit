@@ -23,12 +23,13 @@ const CustomTouchableOpacity = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   color: #dcdcdc;
   font-size: 16px;
+  font-family: "OpenSans-Regular";
 `;
 
 export const Form = styled.View`
   flex-direction: row;
   margin-top: 10px;
-  padding: 0 10px;
+  padding: 5px 10px;
 `;
 
 export const Button = ({ onPress }) => (
