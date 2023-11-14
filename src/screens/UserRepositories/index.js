@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Container, List } from "./styles";
+import { Container, List, Title, Row } from "./styles";
 import { searchUserRepositories } from "../../services/request/userRepositories";
+import { useNavigation } from "@react-navigation/native";
+import Repository from "../../components/Repository";
+import IconButton from "../../components/IconButton";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function UserRepositories({ route }) {
+  const navigation = useNavigation();
   const [repos, setRepos] = useState([]);
+  console.log(route.params.login);
 
   async function search() {
     try {
-      const result = await searchUserRepositories(route.params.user.login);
+      const result = await searchUserRepositories(route.params.login);
       if (result) {
         setRepos(result);
-        console.log(result);
       }
     } catch (err) {
       console.log(err);
@@ -23,12 +28,20 @@ export default function UserRepositories({ route }) {
 
   return (
     <Container>
+      <Row>
+        <IconButton onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back" style={{ color: "white" }} size={35} />
+        </IconButton>
+        <Title>Repositorios</Title>
+      </Row>
       <List
         data={repos}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => {
-          <Text>{item.name}</Text>;
-        }}
+        renderItem={({ item }) => (
+          <>
+            <Repository data={item} />
+          </>
+        )}
       />
     </Container>
   );

@@ -15,7 +15,7 @@ export const Title = styled.Text`
   font-size: 32px;
   font-family: "OpenSans-Bold";
   color: white;
-  padding: 0 10px;
+  padding: 0px 10px;
 `;
 
 export const Row = styled.View`

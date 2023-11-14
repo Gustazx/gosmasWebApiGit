@@ -16,3 +16,15 @@ export const List = styled.FlatList.attrs({
   contentContainerStyle: { paddingHorizontal: 20 },
   showsHorizontalScrollIndicator: false,
 })``;
+
+export const Title = styled.Text`
+  font-family: OpenSans-Bold;
+  font-size: 24px;
+  padding: 6px 10px 20px 15px;
+  color: aliceblue;
+  align-self: center;
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+`;
