@@ -30,7 +30,11 @@ export default function Profile({ route }) {
         <Text>{route.params.user.followers}</Text>
         <Text>{route.params.user.following}</Text>
       </FollowContainer>
-      <Repositorios onPress={() => navigation.navigate("UserRepositories")}>
+      <Repositorios
+        onPress={() =>
+          navigation.navigate("UserRepositories", { user: route.params.user })
+        }
+      >
         <Text>Repositorios</Text>
       </Repositorios>
     </Container>

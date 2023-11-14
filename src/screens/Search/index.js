@@ -18,7 +18,6 @@ export default function Search() {
     if (result) {
       setUser(result);
       navigation.navigate("Profile", { user: result });
-      console.log(result);
       setNomeUsuario("");
       setUser({});
     } else {
