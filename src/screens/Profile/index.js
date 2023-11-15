@@ -24,7 +24,7 @@ export default function Profile({ route }) {
     <Container>
       <Row>
         <IconButton onPress={navigation.goBack}>
-          <Ionicons name="arrow-back" style={{ color: "white" }} size={35} />
+          <Ionicons name="arrow-back" style={{ color: "white" }} size={25} />
         </IconButton>
         <Title>{data.login}</Title>
       </Row>

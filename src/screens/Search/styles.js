@@ -12,32 +12,14 @@ export const Container = styled(LinearGradient).attrs({
   padding-top: ${40 + getStatusBarHeight(true)}px;
 `;
 
-const CustomTouchableOpacity = styled.TouchableOpacity`
-  border-radius: 15px;
-  justify-content: center;
-  background-color: #737067;
-  margin: 0 10px;
-  padding: 0 15px;
-`;
-
-const ButtonText = styled.Text`
-  color: #dcdcdc;
-  font-size: 16px;
-  font-family: "OpenSans-Regular";
-`;
-
 export const Form = styled.View`
   flex-direction: row;
   margin-top: 10px;
   padding: 5px 10px;
 `;
 
-export const Button = ({ onPress }) => (
-  <CustomTouchableOpacity onPress={onPress}>
-    <ButtonText>Buscar</ButtonText>
-  </CustomTouchableOpacity>
-);
-
-export const Text = styled.Text`
-  color: #dcdcdc;
+export const Row = styled.View`
+  flex-direction: row;
+  margin-top: 10px;
+  padding: 5px 15px;
 `;

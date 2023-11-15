@@ -12,14 +12,15 @@ export const Container = styled(LinearGradient).attrs({
 `;
 
 export const Title = styled.Text`
-  font-size: 32px;
+  font-size: 20px;
   font-family: "OpenSans-Bold";
   color: white;
-  padding: 0px 10px;
+  margin: -1px 15px;
 `;
 
 export const Row = styled.View`
   flex-direction: row;
+  padding: 5px 10px;
 `;
 
 export const ImageContainer = styled.View`

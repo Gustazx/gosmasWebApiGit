@@ -19,12 +19,14 @@ export const List = styled.FlatList.attrs({
 
 export const Title = styled.Text`
   font-family: OpenSans-Bold;
-  font-size: 24px;
-  padding: 6px 10px 20px 15px;
+  font-size: 18px;
+  margin: 10px 10px;
   color: aliceblue;
-  align-self: center;
 `;
 
 export const Row = styled.View`
   flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  margin: 10px 20px;
 `;

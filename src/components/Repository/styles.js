@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.View`
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 16px;
   background: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `;
 
 export const Title = styled.Text`
   font-family: OpenSans-Bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
 `;
 
@@ -19,5 +19,5 @@ export const Description = styled.Text`
   font-size: 12px;
   font-family: OpenSans-Regular;
   margin-top: 5px;
-  line-height: 20px;
+  line-height: 25px;
 `;

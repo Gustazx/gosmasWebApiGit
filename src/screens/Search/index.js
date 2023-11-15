@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
-import { Container, Button, Form } from "./styles";
+import { Container, Form, Row } from "./styles";
 import { searchUser } from "../../services/request/users";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import IconButton from "../../components/IconButton";
+import { Button } from "../../components/Button";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import { useNavigation } from "@react-navigation/native";
@@ -26,7 +27,7 @@ export default function Search() {
   }
   return (
     <Container>
-      <Form>
+      <Row>
         <IconButton
           onPress={() => {
             navigation.getParent("Drawer").openDrawer();
@@ -34,7 +35,7 @@ export default function Search() {
         >
           <FontAwesome name="bars" style={{ color: "white" }} size={25} />
         </IconButton>
-      </Form>
+      </Row>
 
       <Form>
         <CustomTextInput

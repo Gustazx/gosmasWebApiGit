@@ -8,6 +8,6 @@ export const Input = styled.TextInput.attrs({
   border-width: 1px;
   flex: 1;
   border-radius: 10px;
-  padding: 12px 15px;
+  padding: 15px 15px;
   background-color: #fff;
 `;
