@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Container, List, Title, Row } from "./styles";
+import { List, Title, Row } from "./styles";
 import { searchUserRepositories } from "../../services/request/userRepositories";
 import { useNavigation } from "@react-navigation/native";
 import Repository from "../../components/Repository";
 import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Container from "../../components/Background";
 
 export default function UserRepositories({ route }) {
   const navigation = useNavigation();

@@ -1,15 +1,4 @@
 import styled from "styled-components/native";
-import LinearGradient from "react-native-linear-gradient";
-import { getStatusBarHeight } from "react-native-status-bar-height";
-
-export const Container = styled(LinearGradient).attrs({
-  colors: ["#363636", "#808080"],
-  start: { x: 0, y: 0 },
-  end: { x: 1, y: 1 },
-})`
-  flex: 1;
-  padding-top: ${40 + getStatusBarHeight(true)}px;
-`;
 
 export const Title = styled.Text`
   font-size: 20px;
@@ -18,22 +7,36 @@ export const Title = styled.Text`
   margin: -1px 15px;
 `;
 
-export const Row = styled.View`
+export const HeaderRow = styled.View`
   flex-direction: row;
   padding: 5px 10px;
 `;
 
-export const ImageContainer = styled.View`
-  justify-content: center;
+export const ProfileRow = styled.View`
   flex-direction: row;
-  margin-top: 30px;
+  margin: 20px 20px;
 `;
 
-export const FollowContainer = styled.View`
-  flex-direction: row;
-  margin: 30px;
-
+export const FollowersColumn = styled.View`
+  margin: 0px 30px;
   justify-content: center;
+  align-items: center;
+`;
+
+export const FollowingColumn = styled.View`
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TextFollowers = styled.Text`
+  font-size: 16px;
+  color: white;
+  margin: 5px;
+`;
+export const TextFollowing = styled.Text`
+  font-size: 16px;
+  color: white;
+  margin: 5px;
 `;
 
 export const Repositorios = styled.TouchableOpacity`
@@ -46,13 +49,13 @@ export const Repositorios = styled.TouchableOpacity`
   align-self: center;
 `;
 
-export const Text = styled.Text`
+export const TextRepositorios = styled.Text`
   font-size: 16px;
   color: white;
 `;
 
 export const Image = styled.Image`
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 100px;
 `;

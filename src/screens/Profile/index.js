@@ -1,17 +1,20 @@
 import React from "react";
 import {
-  Container,
-  Row,
+  HeaderRow,
   Title,
   Image,
-  ImageContainer,
-  FollowContainer,
+  ProfileRow,
   Repositorios,
-  Text,
+  TextRepositorios,
+  FollowersColumn,
+  TextFollowers,
+  FollowingColumn,
+  TextFollowing,
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import IconButton from "../../components/IconButton";
+import Container from "../../components/Background";
 
 export default function Profile({ route }) {
   const navigation = useNavigation();
@@ -22,19 +25,24 @@ export default function Profile({ route }) {
   };
   return (
     <Container>
-      <Row>
+      <HeaderRow>
         <IconButton onPress={navigation.goBack}>
           <Ionicons name="arrow-back" style={{ color: "white" }} size={25} />
         </IconButton>
         <Title>{data.login}</Title>
-      </Row>
-      <ImageContainer>
+      </HeaderRow>
+      <ProfileRow>
         <Image source={{ uri: `${route.params.user.avatar_url}` }} />
-      </ImageContainer>
-      <FollowContainer>
-        <Text>{data.followers}</Text>
-        <Text>{data.following}</Text>
-      </FollowContainer>
+        <FollowersColumn>
+          <TextFollowers>{data.followers}</TextFollowers>
+          <TextFollowers>Seguidores</TextFollowers>
+        </FollowersColumn>
+        <FollowingColumn>
+          <TextFollowing>{data.following}</TextFollowing>
+          <TextFollowing>Seguindo</TextFollowing>
+        </FollowingColumn>
+      </ProfileRow>
+
       <Repositorios
         onPress={() =>
           navigation.navigate("UserRepositories", {
@@ -42,7 +50,7 @@ export default function Profile({ route }) {
           })
         }
       >
-        <Text>Repositorios</Text>
+        <TextRepositorios>Repositorios</TextRepositorios>
       </Repositorios>
     </Container>
   );
