@@ -32,16 +32,19 @@ export const TextFollowers = styled.Text`
   font-size: 16px;
   color: white;
   margin: 5px;
+  font-family: OpenSans-Regular;
 `;
 export const TextFollowing = styled.Text`
   font-size: 16px;
   color: white;
+  font-family: OpenSans-Regular;
   margin: 5px;
 `;
 
 export const Repositorios = styled.TouchableOpacity`
   background-color: black;
   justify-content: center;
+
   align-items: center;
   width: 112px;
   height: 38px;
@@ -52,10 +55,21 @@ export const Repositorios = styled.TouchableOpacity`
 export const TextRepositorios = styled.Text`
   font-size: 16px;
   color: white;
+  font-family: OpenSans-Regular;
 `;
 
 export const Image = styled.Image`
   width: 120px;
   height: 120px;
   border-radius: 100px;
+`;
+
+export const FullName = styled.Text`
+  font-size: 16px;
+  font-family: OpenSans-Bold;
+  color: white;
+`;
+
+export const BioContainer = styled.View`
+  margin: -10px 18px 10px;
 `;

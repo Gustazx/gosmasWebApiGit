@@ -13,7 +13,11 @@ export default function DrawerRoutes() {
         component={StackRoutes}
         options={{ headerShown: false }}
       />
-      <Drawer.Screen name="Repositories" component={Repositories} />
+      <Drawer.Screen
+        name="Repositories"
+        component={Repositories}
+        options={{ headerShown: false }}
+      />
     </Drawer.Navigator>
   );
 }

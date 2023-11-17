@@ -10,6 +10,8 @@ import {
   TextFollowers,
   FollowingColumn,
   TextFollowing,
+  BioContainer,
+  FullName,
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
@@ -22,6 +24,7 @@ export default function Profile({ route }) {
     login: route.params.user.login,
     followers: route.params.user.followers,
     following: route.params.user.following,
+    fullName: route.params.user.name,
   };
   return (
     <Container>
@@ -42,6 +45,9 @@ export default function Profile({ route }) {
           <TextFollowing>Seguindo</TextFollowing>
         </FollowingColumn>
       </ProfileRow>
+      <BioContainer>
+        <FullName>{data.fullName}</FullName>
+      </BioContainer>
 
       <Repositorios
         onPress={() =>
