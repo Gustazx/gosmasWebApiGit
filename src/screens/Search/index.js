@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Row, TextError } from "./styles";
+import { Form, Row, TextError, Title } from "./styles";
 import { searchUser } from "../../services/request/users";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import IconButton from "../../components/IconButton";
@@ -7,10 +7,7 @@ import { Button } from "../../components/Button";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Container from "../../components/Background";
 
-import { useNavigation } from "@react-navigation/native";
-
-export default function Search() {
-  const navigation = useNavigation();
+export default function Search({ navigation }) {
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
   const [nomeUsurario, setNomeUsuario] = useState("");
@@ -46,6 +43,7 @@ export default function Search() {
         >
           <FontAwesome name="bars" style={{ color: "white" }} size={25} />
         </IconButton>
+        <Title>Usuários</Title>
       </Row>
 
       <Form>

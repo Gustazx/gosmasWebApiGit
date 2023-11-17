@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from "styled-components";
 
 export const Form = styled.View`
   flex-direction: row;
@@ -8,15 +8,8 @@ export const Form = styled.View`
 
 export const Row = styled.View`
   flex-direction: row;
-
   padding: 5px 15px;
-`;
-
-export const TextError = styled.Text`
-  font-size: 12px;
-  font-family: OpenSans-Bold;
-  color: red;
-  padding: 0px 15px;
+  align-items: center;
 `;
 
 export const Title = styled.Text`
@@ -24,4 +17,11 @@ export const Title = styled.Text`
   color: white;
   font-family: OpenSans-Bold;
   padding: 0px 16px;
+`;
+
+export const List = styled.FlatList.attrs({
+  contentContainerStyle: { paddingHorizontal: 10 },
+  showsHorizontalScrollIndicator: false,
+})`
+  padding: 30px 0px;
 `;

@@ -1,7 +1,7 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import StackRoutes from "./stack.routes";
-import Repositories from "../screens/Repositores";
+import Repositories from "../screens/Repositories";
 
 const Drawer = createDrawerNavigator();
 

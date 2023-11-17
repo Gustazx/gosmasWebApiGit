@@ -12,44 +12,41 @@ export const HeaderRow = styled.View`
   padding: 5px 10px;
 `;
 
-export const ProfileRow = styled.View`
-  flex-direction: row;
+export const ProfileContainer = styled.View`
   margin: 20px 20px;
 `;
 
-export const FollowersColumn = styled.View`
-  margin: 0px 30px;
+export const ProfileRow = styled.View`
+  flex-direction: row;
+`;
+
+export const FollowColumn = styled.View`
+  margin: 20px -10px 20px 40px;
   justify-content: center;
   align-items: center;
 `;
 
-export const FollowingColumn = styled.View`
-  justify-content: center;
-  align-items: center;
-`;
-
-export const TextFollowers = styled.Text`
-  font-size: 16px;
-  color: white;
-  margin: 5px;
-  font-family: OpenSans-Regular;
-`;
-export const TextFollowing = styled.Text`
+export const TextFollow = styled.Text`
   font-size: 16px;
   color: white;
   font-family: OpenSans-Regular;
   margin: 5px;
 `;
 
-export const Repositorios = styled.TouchableOpacity`
-  background-color: black;
+export const ButtonRow = styled.View`
+  flex-direction: row;
   justify-content: center;
-
+  padding: 0px 12px;
+`;
+export const Button = styled.TouchableOpacity`
+  background-color: #7ea0b7;
+  justify-content: center;
   align-items: center;
   width: 112px;
   height: 38px;
   border-radius: 12px;
-  align-self: center;
+  flex: 1;
+  margin: 0px 6px;
 `;
 
 export const TextRepositorios = styled.Text`
@@ -70,6 +67,13 @@ export const FullName = styled.Text`
   color: white;
 `;
 
+export const Bio = styled.Text`
+  font-size: 12px;
+  font-family: OpenSans-Regular;
+  color: white;
+  padding: 16px 0px 10px;
+`;
+
 export const BioContainer = styled.View`
-  margin: -10px 18px 10px;
+  margin: -10px 20px 0px;
 `;

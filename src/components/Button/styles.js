@@ -4,7 +4,7 @@ export const CustomTouchableOpacity = styled.TouchableOpacity`
   border-radius: 15px;
   justify-content: center;
   background-color: #7ea0b7;
-  margin: 0 10px;
+  margin: 0px 0px 0px 10px;
   padding: 0 15px;
 `;
 
