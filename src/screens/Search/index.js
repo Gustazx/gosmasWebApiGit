@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Alert } from "react-native";
-import { Form, Row } from "./styles";
+import React, { useEffect, useState } from "react";
+import { Form, Row, TextError } from "./styles";
 import { searchUser } from "../../services/request/users";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import IconButton from "../../components/IconButton";
@@ -14,7 +13,6 @@ export default function Search() {
   const navigation = useNavigation();
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
-
   const [nomeUsurario, setNomeUsuario] = useState("");
 
   async function search() {
@@ -26,11 +24,18 @@ export default function Search() {
         setNomeUsuario("");
         setUser({});
         setError(false);
+      } else {
+        setError(true);
       }
-    } catch (error) {
-      setError(true);
-    }
+    } catch (error) {}
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError(false);
+    }, 5000);
+  }, [error]);
+
   return (
     <Container>
       <Row>
@@ -50,8 +55,9 @@ export default function Search() {
           placeholder={"Busque um usuario"}
           error={error}
         />
-        <Button onPress={search} />
+        <Button onPress={search} textButton={"Buscar"} />
       </Form>
+      {error && <TextError>Nome de usuário inválido</TextError>}
     </Container>
   );
 }

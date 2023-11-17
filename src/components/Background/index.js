@@ -6,7 +6,7 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 export default function Container({ children }) {
   return (
     <LinearGradient
-      colors={["#363636", "#808080"]}
+      colors={["#040004", "#111d5e"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={{
