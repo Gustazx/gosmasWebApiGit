@@ -5,18 +5,24 @@ import { useNavigation } from "@react-navigation/native";
 import Repository from "../../components/Repository";
 import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Container from "../../components/Background";
+import Container from "../../components/Background/screenBackground";
+import NotFound from "../../components/NotFundRepos";
 
 export default function UserRepositories({ route }) {
   const navigation = useNavigation();
   const [repos, setRepos] = useState([]);
+  const [repositoryFound, setRepositoryFound] = useState(true);
+
   console.log(route.params.login);
 
   async function search() {
     try {
       const result = await searchUserRepositories(route.params.login);
-      if (result) {
+      if (result && result.length > 1) {
         setRepos(result);
+        setRepositoryFound(true);
+      } else {
+        setRepositoryFound(false);
       }
     } catch (err) {
       console.log(err);
@@ -35,15 +41,20 @@ export default function UserRepositories({ route }) {
         </IconButton>
         <Title>Repositorios</Title>
       </Row>
-      <List
-        data={repos}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <>
-            <Repository data={item} />
-          </>
-        )}
-      />
+
+      {repositoryFound ? (
+        <List
+          data={repos}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <>
+              <Repository data={item} />
+            </>
+          )}
+        />
+      ) : (
+        <NotFound />
+      )}
     </Container>
   );
 }

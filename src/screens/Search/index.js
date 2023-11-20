@@ -5,7 +5,7 @@ import { CustomTextInput } from "../../components/CustomTextInput";
 import IconButton from "../../components/IconButton";
 import { Button } from "../../components/Button";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Container from "../../components/Background";
+import Container from "../../components/Background/screenBackground";
 
 export default function Search({ navigation }) {
   const [user, setUser] = useState({});

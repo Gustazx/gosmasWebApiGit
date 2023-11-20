@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "../../components/Background";
+import Container from "../../components/Background/screenBackground";
 import { Form, List, Row, Title } from "./styles";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import { Button } from "../../components/Button";
@@ -7,20 +7,28 @@ import IconButton from "../../components/IconButton";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { searchRepositories } from "../../services/request/repositories";
 import Repository from "../../components/Repository";
+import NotFound from "../../components/NotFundRepos";
 
 export default function Repositories({ navigation }) {
   const [name, setName] = useState("");
   const [repos, setRepos] = useState([]);
+  const [repositoryFound, setRepositoryFound] = useState(true);
 
   async function search() {
     try {
       const result = await searchRepositories(name);
-      if (result) {
+      console.log(result);
+      if (result && result.items.length > 1) {
         setRepos(result.items);
-        console.log(result.items);
         setName("");
+        setRepositoryFound(true);
+      } else {
+        setRepositoryFound(false);
+        console.log(result);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -43,15 +51,19 @@ export default function Repositories({ navigation }) {
         />
         <Button textButton={"Buscar"} onPress={search} />
       </Form>
-      <List
-        data={repos}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <>
-            <Repository data={item} />
-          </>
-        )}
-      />
+      {repositoryFound ? (
+        <List
+          data={repos}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <>
+              <Repository data={item} />
+            </>
+          )}
+        />
+      ) : (
+        <NotFound />
+      )}
     </Container>
   );
 }

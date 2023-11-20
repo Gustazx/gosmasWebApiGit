@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   HeaderRow,
   Title,
@@ -15,14 +15,12 @@ import {
   ButtonRow,
 } from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import * as Clipboard from "expo-clipboard";
+import OpenURLButton from "../../components/URLButton";
 import { useNavigation } from "@react-navigation/native";
 import IconButton from "../../components/IconButton";
-import Container from "../../components/Background";
+import Container from "../../components/Background/screenBackground";
 
 export default function Profile({ route }) {
-  const navigation = useNavigation();
-
   data = {
     login: route.params.user.login,
     followers: route.params.user.followers,
@@ -32,9 +30,8 @@ export default function Profile({ route }) {
     url: route.params.user.html_url,
   };
 
-  const copyToClipboard = async () => {
-    await Clipboard.setStringAsync(data.url);
-  };
+  const navigation = useNavigation();
+  const profileURL = `https://github.com/${data.login}`;
 
   return (
     <Container>
@@ -71,9 +68,7 @@ export default function Profile({ route }) {
         >
           <TextRepositorios>Repositorios</TextRepositorios>
         </Button>
-        <Button onPress={copyToClipboard}>
-          <TextRepositorios>URL</TextRepositorios>
-        </Button>
+        <OpenURLButton url={profileURL} text={"URL"} />
       </ButtonRow>
     </Container>
   );

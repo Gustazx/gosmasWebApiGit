@@ -21,3 +21,23 @@ export const Description = styled.Text`
   margin-top: 5px;
   line-height: 25px;
 `;
+
+export const Row = styled.View`
+  flex-direction: row;
+  margin: 10px 0px 0px;
+`;
+
+export const Forks = styled.Text`
+  font-size: 14px;
+  font-family: OpenSans-Bold;
+  margin: 0px 15px 0px 0px;
+`;
+
+export const Stars = styled.Text`
+  font-size: 14px;
+  font-family: OpenSans-Bold;
+`;
+
+export const Text = styled.Text`
+  margin-left: 10px;
+`;
