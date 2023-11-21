@@ -4,6 +4,7 @@ import { searchUser } from "../../services/request/users";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import IconButton from "../../components/IconButton";
 import { Button } from "../../components/Button";
+
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Container from "../../components/Background/screenBackground";
 

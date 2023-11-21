@@ -18,7 +18,7 @@ export default function Repositories({ navigation }) {
     try {
       const result = await searchRepositories(name);
       console.log(result);
-      if (result && result.items.length > 1) {
+      if (result && result.items.length > 0) {
         setRepos(result.items);
         setName("");
         setRepositoryFound(true);
@@ -53,6 +53,7 @@ export default function Repositories({ navigation }) {
       </Form>
       {repositoryFound ? (
         <List
+          keyboardShouldPersistTaps="handled"
           data={repos}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
