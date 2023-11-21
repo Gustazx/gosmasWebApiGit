@@ -8,11 +8,13 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { searchRepositories } from "../../services/request/repositories";
 import Repository from "../../components/Repository";
 import NotFound from "../../components/NotFundRepos";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Repositories({ navigation }) {
+export default function Repositories() {
   const [name, setName] = useState("");
   const [repos, setRepos] = useState([]);
   const [repositoryFound, setRepositoryFound] = useState(true);
+  const navigation = useNavigation();
 
   async function search() {
     try {
@@ -58,7 +60,12 @@ export default function Repositories({ navigation }) {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <>
-              <Repository data={item} />
+              <Repository
+                data={item}
+                onPress={() =>
+                  navigation.navigate("RepositoryInfo", { info: item })
+                }
+              />
             </>
           )}
         />

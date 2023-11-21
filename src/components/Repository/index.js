@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Title,
   Description,
@@ -9,9 +9,9 @@ import {
   Text,
 } from "./styles";
 import Icon from "react-native-vector-icons/AntDesign";
-export default function Repository({ data }) {
+export default function Repository({ data, onPress }) {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Title>{data.name}</Title>
       <Description>{data.description ?? "Sem informação"}</Description>
       <Row>

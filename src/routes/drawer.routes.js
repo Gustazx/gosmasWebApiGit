@@ -1,9 +1,10 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import StackRoutes from "./stack.routes";
+import StackRoutesUser from "./stack.routes.user";
 import Repositories from "../screens/Repositories";
 import CustomDrawer from "../components/CustomDrawer";
 import Icon from "react-native-vector-icons/AntDesign";
+import StackRoutesRepositories from "./stack.routes.repositories";
 
 const Drawer = createDrawerNavigator();
 
@@ -25,8 +26,8 @@ export default function DrawerRoutes() {
       }}
     >
       <Drawer.Screen
-        name="User"
-        component={StackRoutes}
+        name="DrawerUser"
+        component={StackRoutesUser}
         options={{
           headerShown: false,
           title: "Usuários",
@@ -34,8 +35,8 @@ export default function DrawerRoutes() {
         }}
       />
       <Drawer.Screen
-        name="Repositories"
-        component={Repositories}
+        name="DrawerRepositories"
+        component={StackRoutesRepositories}
         options={{
           headerShown: false,
           title: "Repositórios",

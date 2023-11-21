@@ -48,7 +48,12 @@ export default function UserRepositories({ route }) {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <>
-              <Repository data={item} />
+              <Repository
+                data={item}
+                onPress={() =>
+                  navigation.navigate("UserRepositoryInfo", { info: item })
+                }
+              />
             </>
           )}
         />

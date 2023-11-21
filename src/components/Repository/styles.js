@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   padding: 20px;
   border-radius: 16px;
   background: #fff;
@@ -13,9 +13,9 @@ export const Title = styled.Text`
   color: #333;
 `;
 
-export const CreatedAt = styled.Text``;
-
-export const Description = styled.Text`
+export const Description = styled.Text.attrs({
+  numberOfLines: 3,
+})`
   font-size: 12px;
   font-family: OpenSans-Regular;
   margin-top: 5px;
@@ -41,3 +41,5 @@ export const Stars = styled.Text`
 export const Text = styled.Text`
   margin-left: 10px;
 `;
+
+export const ShowMore = styled.Text``;
