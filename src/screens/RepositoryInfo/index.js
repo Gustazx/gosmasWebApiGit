@@ -16,8 +16,9 @@ export default function RepositoryInfo({ route }) {
         </IconButton>
         <Title>{route.params.info.name}</Title>
       </HeaderRow>
-      <Text>{route.params.info.language}</Text>
+
       <Text>{route.params.info.owner.login}</Text>
+      <Text>{route.params.info.language}</Text>
     </Container>
   );
 }
