@@ -1,7 +1,5 @@
 import React, { useCallback } from "react";
 import Routes from "./src/routes";
-import theme from "./src/theme";
-import { ThemeProvider } from "styled-components";
 import { StatusBar, View } from "react-native";
 import "react-native-gesture-handler";
 import { useFonts } from "@expo-google-fonts/open-sans";

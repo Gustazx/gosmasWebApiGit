@@ -4,6 +4,7 @@ import { Title, Text, HeaderRow } from "./styles";
 import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import Animation from "../../components/Loading";
 
 export default function RepositoryInfo({ route }) {
   const navigation = useNavigation();

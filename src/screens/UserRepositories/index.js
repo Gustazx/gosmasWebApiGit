@@ -7,16 +7,19 @@ import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Container from "../../components/Background/screenBackground";
 import NotFound from "../../components/NotFundRepos";
+import Loading from "../../components/Loading";
 
 export default function UserRepositories({ route }) {
   const navigation = useNavigation();
   const [repos, setRepos] = useState([]);
   const [repositoryFound, setRepositoryFound] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   console.log(route.params.login);
 
   async function search() {
     try {
+      setLoading(true);
       const result = await searchUserRepositories(route.params.login);
       if (result && result.length > 1) {
         setRepos(result);
@@ -26,6 +29,8 @@ export default function UserRepositories({ route }) {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -42,7 +47,9 @@ export default function UserRepositories({ route }) {
         <Title>Repositorios</Title>
       </Row>
 
-      {repositoryFound ? (
+      {loading ? (
+        <Loading />
+      ) : repositoryFound ? (
         <List
           data={repos}
           keyExtractor={(item) => item.id.toString()}

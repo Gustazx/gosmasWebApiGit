@@ -9,15 +9,19 @@ import { searchRepositories } from "../../services/request/repositories";
 import Repository from "../../components/Repository";
 import NotFound from "../../components/NotFundRepos";
 import { useNavigation } from "@react-navigation/native";
+import Loading from "../../components/Loading";
 
 export default function Repositories() {
   const [name, setName] = useState("");
   const [repos, setRepos] = useState([]);
   const [repositoryFound, setRepositoryFound] = useState(true);
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
 
   async function search() {
     try {
+      setLoading(true);
+
       const result = await searchRepositories(name);
       console.log(result);
       if (result && result.items.length > 0) {
@@ -30,6 +34,8 @@ export default function Repositories() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -53,7 +59,9 @@ export default function Repositories() {
         />
         <Button textButton={"Buscar"} onPress={search} />
       </Form>
-      {repositoryFound ? (
+      {loading ? (
+        <Loading /> // Show loading animation while searching
+      ) : repositoryFound ? (
         <List
           keyboardShouldPersistTaps="handled"
           data={repos}

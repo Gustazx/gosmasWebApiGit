@@ -5,11 +5,11 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/gosmas.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -17,13 +17,15 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "io.expo.gosmasWeb"
+     
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
       "package": "io.expo.gosmasWeb"
     },
+    
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": [

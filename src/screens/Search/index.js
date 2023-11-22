@@ -7,14 +7,17 @@ import { Button } from "../../components/Button";
 
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Container from "../../components/Background/screenBackground";
+import Loading from "../../components/Loading";
 
 export default function Search({ navigation }) {
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
   const [nomeUsurario, setNomeUsuario] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function search() {
     try {
+      setLoading(true);
       const result = await searchUser(nomeUsurario);
       if (result) {
         setUser(result);
@@ -25,7 +28,10 @@ export default function Search({ navigation }) {
       } else {
         setError(true);
       }
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -56,7 +62,11 @@ export default function Search({ navigation }) {
         />
         <Button onPress={search} textButton={"Buscar"} />
       </Form>
-      {error && <TextError>Nome de usuário inválido</TextError>}
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <TextError>Nome de usuário inválido</TextError>
+      ) : null}
     </Container>
   );
 }
