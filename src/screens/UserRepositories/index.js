@@ -15,8 +15,6 @@ export default function UserRepositories({ route }) {
   const [repositoryFound, setRepositoryFound] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  console.log(route.params.login);
-
   async function search() {
     try {
       setLoading(true);

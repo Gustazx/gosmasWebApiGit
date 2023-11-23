@@ -54,6 +54,6 @@ export const DateRow = styled.View`
 `;
 
 export const FileList = styled.FlatList.attrs({
-  contentContainerStyle: { paddingHorizontal: 20 },
+  contentContainerStyle: { paddingHorizontal: 5, paddingVertical: 10 },
   showsHorizontalScrollIndicator: false,
 })``;

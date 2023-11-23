@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../components/Background/screenBackground";
 import {
   Title,
@@ -17,12 +17,32 @@ import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import File from "../../components/FIle";
+import { userContent } from "../../services/request/userContent";
 
 export default function RepositoryInfo({ route }) {
   const navigation = useNavigation();
-  console.log(route.params.info.contents_url);
-  console.log(route.params.info.language);
-  const data = [1, 2, 3, 4];
+  const [content, setContent] = useState([]);
+
+  async function searchContent() {
+    try {
+      const result = await userContent(
+        route.params.info.owner.login,
+        route.params.info.name
+      );
+      if (result) {
+        result.sort((a, b) => a.type.localeCompare(b.type));
+
+        setContent(result);
+        console.log(result);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    searchContent();
+  }, []);
 
   return (
     <Container>
@@ -40,13 +60,10 @@ export default function RepositoryInfo({ route }) {
       </Language>
       <FileContainer>
         <FileList
-          data={data}
-          keyExtractor={(item) => item}
-          renderItem={({ item }) => (
-            <>
-              <File />
-            </>
-          )}
+          data={content}
+          numColumns={2}
+          keyExtractor={(item) => item.sha}
+          renderItem={({ item }) => <File data={item} />}
         />
       </FileContainer>
       <DateRow />
