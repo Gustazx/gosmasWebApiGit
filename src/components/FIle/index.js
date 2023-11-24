@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BodyRow,
+  Body,
   Container,
   HeaderRow,
   Name,
@@ -10,21 +10,19 @@ import {
 import Octicons from "react-native-vector-icons/Octicons";
 import { Buffer } from "buffer";
 
-export default function File({ data }) {
+export default function File({ data, onPress }) {
   return (
-    <Container>
-      <HeaderRow>
-        <Name>{data.name}</Name>
-      </HeaderRow>
-      <BodyRow>
-        <Type>{data.type}</Type>
-      </BodyRow>
+    <Container onPress={onPress}>
       <IconContainer>
         <Octicons
           name={data.type == "file" ? "file" : "file-directory"}
           size={18}
         />
       </IconContainer>
+      <Body>
+        <Name>{data.name}</Name>
+        <Type>{data.type}</Type>
+      </Body>
     </Container>
   );
 }

@@ -23,17 +23,14 @@ export default function Repositories() {
       setLoading(true);
 
       const result = await searchRepositories(name);
-      console.log(result);
       if (result && result.items.length > 0) {
         setRepos(result.items);
         setName("");
         setRepositoryFound(true);
       } else {
         setRepositoryFound(false);
-        console.log(result);
       }
     } catch (error) {
-      console.log(error);
     } finally {
       setLoading(false);
     }

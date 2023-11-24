@@ -26,7 +26,6 @@ export default function UserRepositories({ route }) {
         setRepositoryFound(false);
       }
     } catch (err) {
-      console.log(err);
     } finally {
       setLoading(false);
     }

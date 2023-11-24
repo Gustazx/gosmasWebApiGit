@@ -5,6 +5,8 @@ import Profile from "../screens/Profile";
 import UserRepositories from "../screens/UserRepositories";
 import Repositories from "../screens/Repositories";
 import RepositoryInfo from "../screens/RepositoryInfo";
+import FileContent from "../screens/FileContent";
+import DirContent from "../screens/DirContent";
 
 export default function StackRoutesUser() {
   return (
@@ -28,6 +30,16 @@ export default function StackRoutesUser() {
         <Stack.Screen
           name="UserRepositoryInfo"
           component={RepositoryInfo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FileContent"
+          component={FileContent}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DirContent"
+          component={DirContent}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

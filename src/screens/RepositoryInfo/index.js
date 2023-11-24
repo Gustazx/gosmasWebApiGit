@@ -18,10 +18,14 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import File from "../../components/FIle";
 import { userContent } from "../../services/request/userContent";
+import Moment from "moment";
+import "moment/locale/pt-br";
 
 export default function RepositoryInfo({ route }) {
   const navigation = useNavigation();
   const [content, setContent] = useState([]);
+
+  Moment.locale("pt_br");
 
   async function searchContent() {
     try {
@@ -33,11 +37,8 @@ export default function RepositoryInfo({ route }) {
         result.sort((a, b) => a.type.localeCompare(b.type));
 
         setContent(result);
-        console.log(result);
       }
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   }
 
   useEffect(() => {
@@ -63,12 +64,32 @@ export default function RepositoryInfo({ route }) {
           data={content}
           numColumns={2}
           keyExtractor={(item) => item.sha}
-          renderItem={({ item }) => <File data={item} />}
+          renderItem={({ item }) => (
+            <File
+              data={item}
+              onPress={
+                item.type == "file"
+                  ? () =>
+                      navigation.navigate("FileContent", {
+                        code: item,
+                        user: route.params.info,
+                      })
+                  : () => navigation.navigate("DirContent")
+              }
+            />
+          )}
         />
       </FileContainer>
-      <DateRow />
-      <CreatedAt>{route.params.info.created_at}</CreatedAt>
-      <UpdatedAt>{route.params.info.updated_at}</UpdatedAt>
+      <DateRow>
+        <CreatedAt>
+          Data de Criação:{" "}
+          {Moment(route.params.info.created_at).format("DD/MM/YYYY")}
+        </CreatedAt>
+        <UpdatedAt>
+          Ultima Atualização:{" "}
+          {Moment(route.params.info.UpdatedAt).format("DD/MM/YYYY")}
+        </UpdatedAt>
+      </DateRow>
     </Container>
   );
 }

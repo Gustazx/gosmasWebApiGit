@@ -34,14 +34,20 @@ export const Language = styled.Text`
   margin: 2px 12px;
 `;
 
-export const CreatedAt = styled.Text``;
+export const CreatedAt = styled.Text`
+  color: white;
+  padding-bottom: 10px;
+`;
 
-export const UpdatedAt = styled.Text``;
+export const UpdatedAt = styled.Text`
+  color: white;
+  padding-bottom: 30px;
+`;
 
 export const FileContainer = styled.View`
-  margin: 30px;
+  margin: 25px 0px 20px 0px;
   align-self: center;
-  width: 375px;
+  width: 390px;
   height: 225px;
   border: 2px solid white;
   border-radius: 10px;
@@ -49,8 +55,9 @@ export const FileContainer = styled.View`
 `;
 
 export const DateRow = styled.View`
-  text-align: row;
-  margin: 40px;
+  justify-content: start;
+  align-items: start;
+  margin: 0px 20px;
 `;
 
 export const FileList = styled.FlatList.attrs({
