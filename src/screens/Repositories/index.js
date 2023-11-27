@@ -10,6 +10,7 @@ import Repository from "../../components/Repository";
 import NotFound from "../../components/NotFundRepos";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../../components/Loading";
+import { ActivityIndicator } from "react-native-paper";
 
 export default function Repositories() {
   const [name, setName] = useState("");

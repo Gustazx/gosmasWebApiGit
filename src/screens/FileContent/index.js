@@ -7,15 +7,16 @@ import {
   Title,
   ScrollViewCode,
 } from "./styles";
-import { Buffer } from "buffer";
 import { codeSearch } from "../../services/request/code";
 import IconButton from "../../components/IconButton";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
-import { Clipboard } from "react-native";
+import * as Clipboard from "expo-clipboard";
+import CustomSnackbar from "../../components/Snackbar";
 
 export default function FileContent({ route }) {
   const [code, setCode] = useState("");
+  const [visible, setVisible] = useState(false);
   const Buffer = require("buffer").Buffer;
   const navigation = useNavigation();
 
@@ -34,12 +35,18 @@ export default function FileContent({ route }) {
 
   useEffect(() => {
     getCode();
-  }, []);
+    if (visible) {
+      setTimeout(() => {
+        setVisible(false);
+      }, 3000);
+    }
+  }, [visible]);
 
   const decodedCode = Buffer.from(`${code}`, "base64").toString("utf-8");
 
-  const copyToClipboard = () => {
-    Clipboard.setString(decodedCode.toString());
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync(decodedCode.toString());
+    setVisible(true);
   };
 
   return (
@@ -58,6 +65,11 @@ export default function FileContent({ route }) {
           <Code>{decodedCode}</Code>
         </ScrollViewCode>
       </CodeContainer>
+      <CustomSnackbar
+        text={"Copiado para a área de transfêrencia"}
+        visible={visible}
+        onDismiss={() => setVisible(false)}
+      />
     </Container>
   );
 }

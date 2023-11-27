@@ -74,7 +74,11 @@ export default function RepositoryInfo({ route }) {
                         code: item,
                         user: route.params.info,
                       })
-                  : () => navigation.navigate("DirContent")
+                  : () =>
+                      navigation.navigate("DirContent", {
+                        dir: item,
+                        user: route.params.info,
+                      })
               }
             />
           )}

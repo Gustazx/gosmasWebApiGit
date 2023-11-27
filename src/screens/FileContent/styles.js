@@ -3,6 +3,8 @@ import { Dimensions } from "react-native";
 
 export const CodeContainer = styled.ScrollView.attrs({
   bounces: false,
+  showsHorizontalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
 })`
   flex: 1;
   margin: 20px;
@@ -14,6 +16,8 @@ export const CodeContainer = styled.ScrollView.attrs({
 export const ScrollViewCode = styled.ScrollView.attrs({
   horizontal: true,
   contentContainerStyle: { width: 750 },
+  showsHorizontalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
 })``;
 
 export const HeaderRow = styled.View`
