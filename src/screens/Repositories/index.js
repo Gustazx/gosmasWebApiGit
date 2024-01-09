@@ -58,7 +58,7 @@ export default function Repositories() {
         <Button textButton={"Buscar"} onPress={search} />
       </Form>
       {loading ? (
-        <Loading /> // Show loading animation while searching
+        <Loading />
       ) : repositoryFound ? (
         <List
           keyboardShouldPersistTaps="handled"
